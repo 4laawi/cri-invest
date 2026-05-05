@@ -1,15 +1,34 @@
 "use client";
 
-import { useAuth } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { Loader2 } from "lucide-react";
+import { createBrowserClient } from '@supabase/ssr'
 
 export default function AuthLayoutWrapper({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { isLoaded, isSignedIn } = useAuth();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  useEffect(() => {
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsSignedIn(!!session);
+      setIsLoaded(true);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsSignedIn(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   if (!isLoaded) {
     return (

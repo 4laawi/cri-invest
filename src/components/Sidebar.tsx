@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { createBrowserClient } from '@supabase/ssr'
 import { 
   LayoutDashboard, 
   Briefcase, 
@@ -13,10 +15,10 @@ import {
   Search,
   LogIn,
   UserPlus,
-  LogOut
+  LogOut,
+  User
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { UserButton, useAuth, SignOutButton } from "@clerk/nextjs";
 
 const menuItems = [
   { name: "Tableau de bord", href: "/", icon: LayoutDashboard },
@@ -29,7 +31,30 @@ const menuItems = [
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { isSignedIn, isLoaded } = useAuth();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsSignedIn(!!session);
+      setIsLoaded(true);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsSignedIn(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [supabase]);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    window.location.href = "/";
+  };
 
   return (
     <div className="w-64 bg-white border-r border-slate-200 flex flex-col h-screen sticky top-0">
@@ -72,25 +97,19 @@ export default function Sidebar() {
           <div className="flex flex-col gap-2">
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <UserButton 
-                  appearance={{
-                    elements: {
-                      userButtonBox: "scale-125"
-                    }
-                  }}
-                />
+                <div className="bg-emerald-100 p-2 rounded-full text-emerald-700">
+                  <User className="w-5 h-5" />
+                </div>
                 <div className="flex flex-col">
                   <span className="text-sm font-semibold text-slate-900">Mon Compte</span>
                   <span className="text-xs text-slate-500">Gérer le profil</span>
                 </div>
               </div>
             </div>
-            <SignOutButton redirectUrl="/">
-              <button className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-sm font-medium transition-colors">
-                <LogOut className="w-4 h-4" />
-                Déconnexion
-              </button>
-            </SignOutButton>
+            <button onClick={handleSignOut} className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-sm font-medium transition-colors">
+              <LogOut className="w-4 h-4" />
+              Déconnexion
+            </button>
           </div>
         )}
 

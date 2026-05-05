@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/ConvexClientProvider";
-import { ClerkProvider } from "@clerk/nextjs";
 import AuthLayoutWrapper from "@/components/AuthLayoutWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,16 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="fr">
-        <body className={`${inter.className} bg-slate-50 text-slate-900 min-h-screen flex`}>
-          <ConvexClientProvider>
-            <AuthLayoutWrapper>
-              {children}
-            </AuthLayoutWrapper>
-          </ConvexClientProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="fr">
+      <body className={`${inter.className} bg-slate-50 text-slate-900 min-h-screen flex`}>
+        <ConvexClientProvider>
+          <AuthLayoutWrapper>
+            {children}
+          </AuthLayoutWrapper>
+        </ConvexClientProvider>
+      </body>
+    </html>
   );
 }

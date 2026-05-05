@@ -7,11 +7,30 @@ import Image from "next/image";
 import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp, ChevronRight, Loader2 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { useAuth, SignIn } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+import { createBrowserClient } from '@supabase/ssr'
 
 export default function Dashboard() {
-  const { isLoaded, isSignedIn } = useAuth();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const projects = useQuery(api.projects.getProjects);
+
+  useEffect(() => {
+    const supabase = createBrowserClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    )
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsSignedIn(!!session);
+      setIsLoaded(true);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsSignedIn(!!session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const stats = [
     { name: "Projets Totaux", value: projects?.length || 0, icon: Briefcase, color: "text-blue-600" },
@@ -147,35 +166,18 @@ export default function Dashboard() {
                 d'Investissement
               </h1>
 
-              {/* Standard Clerk Auth UI */}
-              <div className="w-full max-w-md">
-                <SignIn 
-                  routing="hash" 
-                  appearance={{
-                    variables: {
-                      colorPrimary: "#059669",
-                      colorBackground: "white",
-                      colorText: "#0f172a",
-                    },
-                    elements: {
-                      rootBox: "w-full",
-                      cardBox: "shadow-none",
-                      card: "bg-white shadow-none border-0 p-0",
-                      headerTitle: "hidden",
-                      headerSubtitle: "hidden",
-                      formButtonPrimary: "bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl py-3 shadow-none transition-colors",
-                      formFieldInput: "rounded-xl border-slate-200 focus:ring-emerald-500 focus:border-emerald-500 py-3 bg-white",
-                      formFieldLabel: "text-slate-700 font-medium",
-                      socialButtonsBlockButton: "rounded-xl border-slate-200 hover:bg-slate-50 py-3 transition-colors bg-white",
-                      dividerLine: "bg-slate-200",
-                      dividerText: "text-slate-400",
-                      footerActionLink: "text-emerald-700 hover:text-emerald-800 font-medium",
-                      footer: "bg-white border-0 px-0 pb-0",
-                      developmentModeBadge: "text-emerald-600 bg-emerald-50 border border-emerald-200",
-                      footerAction: "bg-white",
-                    }
-                  }}
-                />
+              {/* Basic Supabase Auth Prompt (Pending UI) */}
+              <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <h2 className="text-xl font-bold mb-4">Connexion requise</h2>
+                <p className="text-slate-600 mb-6">Veuillez vous connecter pour accéder à votre espace d'investissement.</p>
+                <div className="flex flex-col gap-3">
+                  <Link href="/sign-in" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white text-center rounded-xl py-3 font-medium transition-colors">
+                    Se connecter
+                  </Link>
+                  <Link href="/sign-up" className="w-full bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-center rounded-xl py-3 font-medium transition-colors">
+                    Créer un compte
+                  </Link>
+                </div>
               </div>
               
             </div>

@@ -1,34 +1,71 @@
-import { SignIn } from "@clerk/nextjs";
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { createBrowserClient } from '@supabase/ssr'
 
 export default function Page() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+
+  const handleSignIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) setError(error.message);
+    else window.location.href = "/";
+  };
+
   return (
-    <div className="flex items-center justify-center min-h-[80vh]">
-      <SignIn 
-        appearance={{
-          variables: {
-            colorPrimary: "#059669",
-            colorBackground: "white",
-            colorText: "#0f172a",
-          },
-          elements: {
-            rootBox: "w-full max-w-md",
-            cardBox: "shadow-none",
-            card: "bg-white shadow-none border-0 p-0",
-            headerTitle: "text-3xl font-bold text-slate-900",
-            headerSubtitle: "text-slate-500 mb-4",
-            formButtonPrimary: "bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl py-3 shadow-none transition-colors",
-            formFieldInput: "rounded-xl border-slate-200 focus:ring-emerald-500 focus:border-emerald-500 py-3 bg-white",
-            formFieldLabel: "text-slate-700 font-medium",
-            socialButtonsBlockButton: "rounded-xl border-slate-200 hover:bg-slate-50 py-3 transition-colors bg-white",
-            dividerLine: "bg-slate-200",
-            dividerText: "text-slate-400",
-            footerActionLink: "text-emerald-700 hover:text-emerald-800 font-medium",
-            footer: "bg-white border-0 px-0 pb-0",
-            developmentModeBadge: "text-emerald-600 bg-emerald-50 border border-emerald-200",
-            footerAction: "bg-white",
-          }
-        }}
-      />
+    <div className="flex flex-col items-center justify-center min-h-[80vh] w-full max-w-md mx-auto p-6">
+      <div className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm w-full">
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">Connexion</h1>
+        <p className="text-slate-500 mb-6">Connectez-vous à votre compte</p>
+        
+        {error && <div className="mb-4 text-red-600 bg-red-50 p-3 rounded-lg text-sm">{error}</div>}
+        
+        <form onSubmit={handleSignIn} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <input 
+              type="email" 
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" 
+              required 
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-slate-700 mb-1">Mot de passe</label>
+            <input 
+              type="password" 
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" 
+              required 
+            />
+          </div>
+          <button type="submit" className="w-full bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl py-3 font-medium transition-colors">
+            Se connecter
+          </button>
+        </form>
+      </div>
+
+      <div className="mt-8 text-center text-slate-600">
+        Vous n'avez pas de compte ?{" "}
+        <Link 
+          href="/sign-up" 
+          className="text-emerald-700 hover:text-emerald-800 font-medium hover:underline transition-all"
+        >
+          S'inscrire
+        </Link>
+      </div>
     </div>
   );
 }

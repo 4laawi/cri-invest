@@ -73,7 +73,6 @@ export default function Sidebar() {
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <UserButton 
-                  afterSignOutUrl="/"
                   appearance={{
                     elements: {
                       userButtonBox: "scale-125"

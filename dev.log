@@ -1,0 +1,921 @@
+
+> cri-smart-portal@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.10.229:3000
+✓ Ready in 618ms
+
+○ Compiling / ...
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ HEAD / 500 in 5.3s (next.js: 5.2s, application-code: 167ms)
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (next.js: 7ms, application-code: 15ms)
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 28ms (next.js: 10ms, application-code: 18ms)
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 17ms (next.js: 7ms, application-code: 10ms)
+[browser] Uncaught Error: ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 18ms (next.js: 6ms, application-code: 12ms)
+[browser] Uncaught Error: ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+  Reload env: .env.local
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+
+./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useQuery } [36mfrom[0m [32m"convex/react"[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m { api } [36mfrom[0m [32m"../../convex/_generated/api"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m [36mimport[0m [33mLink[0m [36mfrom[0m [32m"next/link"[0m;
+  [90m6 |[0m [36mimport[0m { [33mPlus[0m, [33mBriefcase[0m, [33mCheckCircle[0m, [33mClock[0m, [33mBarChart3[0m, [33mTrendingUp[0m } [36mfrom[0m [32m"lucide-react"[0m;
+  [90m7 |[0m [36mimport[0m { [33mCard[0m } [36mfrom[0m [32m"@/components/ui/card"[0m;
+
+
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+ GET / 500 in 22ms (next.js: 8ms, application-code: 14ms)
+  Reload env: .env.local
+[browser] Uncaught Error: ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/page.tsx:4:1
+Module not found: Can't resolve '../../convex/_generated/api'
+  2 |
+  3 | import { useQuery } from "convex/react";
+> 4 | import { api } from "../../convex/_generated/api";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 | import Link from "next/link";
+  6 | import { Plus, Briefcase, CheckCircle, Clock, BarChart3, TrendingUp } from "lucide-react";
+  7 | import { Card } from "@/components/ui/card";
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.tsx [Client Component Browser]
+    ./src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.tsx [Client Component SSR]
+    ./src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found 
+⨯ ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+ GET / 500 in 25ms (next.js: 9ms, application-code: 16ms)
+[browser] Uncaught Error: ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component]
+
+
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+[browser] ./src/app/globals.css
+Error evaluating Node.js code
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[root-of-the-server]__0d-m0h0._.js
+- /Users/mac/Documents/stage/.next/dev/build/chunks/[turbopack]_runtime.js
+- /Users/mac/Documents/stage/.next/dev/build/postcss.js
+    [at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)]
+    [at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)]
+    [at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)]
+    [at Function._load (node:internal/modules/cjs/loader:1211:37)]
+    [at TracingChannel.traceSync (node:diagnostics_channel:322:14)]
+    [at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)]
+    [at Module.require (node:internal/modules/cjs/loader:1487:12)]
+    [at require (node:internal/modules/helpers:135:16)]
+    [at <anonymous> (turbopack:///[turbopack-node]/transforms/postcss.ts:49:25)]
+    [at <anonymous>]
+
+Import trace:
+  Client Component Browser:
+    ./src/app/globals.css [Client Component Browser]
+    ./src/app/layout.tsx [Server Component] 
+ GET / 200 in 641ms (next.js: 258ms, application-code: 383ms)
+[?25h

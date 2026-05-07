@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 
 :root {
   --background: #f8fafc;
@@ -18,6 +20,15 @@ body {
     @apply antialiased;
   }
 }
+
+/* Tweak prose for chat bubbles */
+.prose :first-child {
+  margin-top: 0 !important;
+}
+.prose :last-child {
+  margin-bottom: 0 !important;
+}
+
 
 /* Custom transitions and animations */
 .transition-all {
@@ -41,3 +52,23 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #cbd5e1;
 }
+
+@keyframes progress-indefinite {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.animate-progress-indefinite {
+  animation: progress-indefinite 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite linear;
+}
+
+

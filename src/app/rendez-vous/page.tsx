@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useMutation } from "convex/react";
-import { api } from "../../../convex/_generated/api";
+import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/providers/SupabaseAuthProvider";
 import { Calendar, Clock, CheckCircle2, User, Briefcase } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 export default function Appointments() {
-  const createAppointment = useMutation(api.other.createAppointment);
+  const { user } = useAuth();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -17,8 +17,20 @@ export default function Appointments() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await createAppointment(formData);
-    setIsSubmitted(true);
+    if (!user) return alert("Vous devez être connecté.");
+    
+    const { error } = await supabase
+      .from('appointments')
+      .insert([{
+        user_id: user.id,
+        ...formData
+      }]);
+
+    if (error) {
+      alert("Erreur lors de la prise de rendez-vous.");
+    } else {
+      setIsSubmitted(true);
+    }
   };
 
   if (isSubmitted) {

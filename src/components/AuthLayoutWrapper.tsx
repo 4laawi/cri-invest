@@ -1,34 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 import { Loader2 } from "lucide-react";
-import { createBrowserClient } from '@supabase/ssr'
+import { useAuth } from "@/providers/SupabaseAuthProvider";
 
 export default function AuthLayoutWrapper({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isSignedIn, setIsSignedIn] = useState(false);
-
-  useEffect(() => {
-    const supabase = createBrowserClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-    )
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setIsSignedIn(!!session);
-      setIsLoaded(true);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setIsSignedIn(!!session);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
+  const { user, isLoading } = useAuth();
+  const isSignedIn = !!user;
+  const isLoaded = !isLoading;
 
   if (!isLoaded) {
     return (

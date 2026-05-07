@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Search, ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/lib/supabase";
+import { useEffect } from "react";
 
 const defaultFaqs = [
   {
@@ -25,10 +27,25 @@ const defaultFaqs = [
 ];
 
 export default function FAQ() {
+  const [faqs, setFaqs] = useState<any[]>(defaultFaqs);
   const [search, setSearch] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const filteredFaqs = defaultFaqs.filter(faq => 
+  useEffect(() => {
+    async function fetchFaqs() {
+      const { data, error } = await supabase
+        .from('faqs')
+        .select('*')
+        .order('created_at', { ascending: false });
+      
+      if (data && data.length > 0) {
+        setFaqs(data);
+      }
+    }
+    fetchFaqs();
+  }, []);
+
+  const filteredFaqs = faqs.filter(faq => 
     faq.question.toLowerCase().includes(search.toLowerCase()) ||
     faq.answer.toLowerCase().includes(search.toLowerCase())
   );

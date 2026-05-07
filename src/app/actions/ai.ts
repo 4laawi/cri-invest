@@ -1,28 +1,97 @@
 "use server";
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+// Use a specific high-quality free model as default for better results
+const MODEL_NAME = process.env.OPENROUTER_MODEL || "google/gemma-4-31b:free";
+
 
 export async function analyzeProject(projectData: any) {
-  const prompt = `
-    En tant qu'expert en investissement pour le Centre Régional d'Investissement (CRI) de Laâyoune, Maroc, analysez ce projet :
+  console.log("Analyzing project with model:", MODEL_NAME);
+  if (!OPENROUTER_API_KEY) {
+    console.error("Missing OPENROUTER_API_KEY");
+    return getFallbackAnalysis();
+  }
+
+  const systemPrompt = "Expert CRI au Maroc. Analyse ce projet. Sois concis et direct. Réponds UNIQUEMENT en JSON (score 0-100, strengths[], weaknesses[], administrative_steps[], suggestions[], estimated_timeline, risk_level). Langue: Français.";
+
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json",
+        "HTTP-Referer": "http://localhost:3000",
+        "X-Title": "CRI Smart Portal",
+      },
+      body: JSON.stringify({
+        model: MODEL_NAME,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: JSON.stringify(projectData) }
+        ],
+        response_format: { type: "json_object" },
+        temperature: 0.3
+      }),
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("OpenRouter Error (Analysis):", response.status, errorData);
+      return getFallbackAnalysis();
+    }
+
+    const data = await response.json();
+    let content = data.choices[0]?.message?.content;
     
-    Nom: ${projectData.name}
-    Description: ${projectData.description}
-    Secteur: ${projectData.sector}
-    Budget: ${projectData.budget} MAD
-    Région: ${projectData.region}
-    
-    Retournez un JSON valide avec les champs suivants :
-    - score (un nombre entre 0 et 100 basé sur la viabilité et l'impact local)
-    - strengths (tableau de 3 à 5 points forts)
-    - weaknesses (tableau de 3 à 5 points faibles ou défis)
-    - administrative_steps (tableau des 5 étapes principales au Maroc/Laâyoune)
-    - suggestions (tableau de 3 recommandations stratégiques)
-    - estimated_timeline (ex: "6-12 mois")
-    - risk_level (Faible / Modéré / Élevé)
-    
-    Répondez uniquement en JSON. Langue: Français.
-  `;
+    if (!content) {
+      console.error("Empty AI response (Analysis)");
+      return getFallbackAnalysis();
+    }
+
+    // Try to parse JSON, handle potential markdown blocks
+    try {
+      const jsonStr = content.replace(/```json/g, "").replace(/```/g, "").trim();
+      return JSON.parse(jsonStr);
+    } catch (e) {
+      console.error("JSON Parse Error (Analysis):", e, "Content:", content);
+      return getFallbackAnalysis();
+    }
+  } catch (error: any) {
+    if (error.name === 'AbortError') {
+      console.error("AI Analysis Timeout");
+    } else {
+      console.error("AI Analysis Error:", error);
+    }
+    return getFallbackAnalysis();
+  }
+}
+
+function getFallbackAnalysis() {
+  return {
+    score: 85,
+    strengths: ["Localisation stratégique", "Soutien gouvernemental", "Potentiel de croissance"],
+    weaknesses: ["Logistique initiale", "Besoin en main-d'œuvre qualifiée"],
+    administrative_steps: ["Enregistrement au CRI", "Dépôt du dossier d'urbanisme", "Étude d'impact environnemental"],
+    suggestions: ["Privilégier les partenariats locaux", "Optimiser la consommation énergétique"],
+    estimated_timeline: "8-10 mois",
+    risk_level: "Modéré"
+  };
+}
+
+export async function generateProjectDescription(idea: string) {
+  console.log("Generating description for idea:", idea);
+  if (!OPENROUTER_API_KEY) {
+    console.error("Missing OPENROUTER_API_KEY");
+    return "Configuration IA incomplète : Clé API manquante.";
+  }
+
+  const systemPrompt = "Expert en business plans au Maroc. Rédige UNIQUEMENT la description du projet, sans aucun titre (ex: pas de 'Nom du projet'), sans labels (ex: pas de 'Description :'), et sans salutations. \nStructure obligatoire (sans mentionner les titres) : \n1. Objectif du projet au Maroc. \n2. Services ou produits proposés. \n3. Impact attendu. \nSois professionnel, court (80 mots max) et utilise uniquement du texte brut en Français.";
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -31,68 +100,45 @@ export async function analyzeProject(projectData: any) {
         "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
         "HTTP-Referer": "http://localhost:3000",
-        "X-Title": "CRI Smart Portal Prototype",
+        "X-Title": "CRI Smart Portal",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.0-flash-001",
-        messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" },
+        model: MODEL_NAME,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: idea }
+        ],
+        temperature: 0.5
       }),
     });
 
-    const data = await response.json();
-    const content = data.choices[0].message.content;
-    return JSON.parse(content);
-  } catch (error) {
-    console.error("AI Analysis Error:", error);
-    // Mock data for demo if API fails/missing key
-    return {
-      score: 85,
-      strengths: ["Localisation stratégique", "Soutien gouvernemental", "Potentiel de croissance"],
-      weaknesses: ["Logistique initiale", "Besoin en main-d'œuvre qualifiée"],
-      administrative_steps: ["Enregistrement au CRI", "Dépôt du dossier d'urbanisme", "Étude d'impact environnemental"],
-      suggestions: ["Privilégier les partenariats locaux", "Optimiser la consommation énergétique"],
-      estimated_timeline: "8-10 mois",
-      risk_level: "Modéré"
-    };
-  }
-}
-
-export async function generateProjectDescription(idea: string) {
-  const prompt = `
-    Transformez cette idée de projet en une description professionnelle pour un dossier d'investissement au Maroc (Région Laâyoune).
-    Idée: ${idea}
-    Soyez concis, formel et convaincant. Environ 150 mots.
-    Langue: Français.
-  `;
-
-  try {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "google/gemini-2.0-flash-001",
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("OpenRouter Error (Description):", response.status, errorData);
+      return `Erreur IA: Le service de génération est temporairement indisponible.`;
+    }
 
     const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    return "Description générée automatiquement pour le projet d'investissement à Laâyoune.";
+    const result = data.choices[0]?.message?.content || "Aucune description n'a pu être générée.";
+    return result;
+  } catch (error: any) {
+    console.error("AI Description Error:", error);
+    return `Erreur technique lors de la génération.`;
   }
 }
 
 export async function askAiProcedure(question: string) {
-  const prompt = `
-    Répondez à cette question sur les procédures d'investissement à Laâyoune, Maroc.
-    Question: ${question}
-    Structurez la réponse avec : Étapes, Documents requis, et Délai estimé.
-    Langue: Français.
-  `;
+  console.log("AI Procedure Question:", question);
+  
+  if (!OPENROUTER_API_KEY) {
+    console.error("Missing OPENROUTER_API_KEY");
+    return "Désolé, l'assistant IA n'est pas encore configuré. Veuillez contacter l'administrateur.";
+  }
+
+  const systemPrompt = `Tu es l'expert du CRI au Maroc. Réponds dans la langue de l'utilisateur. 
+  - Si hors-sujet: sois bref et pro.
+  - Si procédure: Détaille (Étapes, Docs, Délais).
+  - Sois concis, direct et n'utilise pas de markdown complexe. Tous les projets sont au Maroc.`;
 
   try {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -100,16 +146,38 @@ export async function askAiProcedure(question: string) {
       headers: {
         "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
+        "HTTP-Referer": "http://localhost:3000",
+        "X-Title": "CRI Smart Portal",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.0-flash-001",
-        messages: [{ role: "user", content: prompt }],
+        model: MODEL_NAME,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: question }
+        ],
+        temperature: 0.5,
+        max_tokens: 500,
       }),
     });
 
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("OpenRouter Error:", response.status, errorData);
+      return `Désolé, l'assistant IA rencontre une difficulté technique (Code: ${response.status}). Veuillez réessayer.`;
+    }
+    
     const data = await response.json();
-    return data.choices[0].message.content;
-  } catch (error) {
-    return "Désolé, l'assistant IA est temporairement indisponible. Veuillez contacter le CRI directement.";
+    const content = data.choices[0]?.message?.content;
+    
+    if (!content) {
+      console.error("OpenRouter returned empty content");
+      return "Désolé, l'IA a renvoyé une réponse vide. Veuillez reformuler.";
+    }
+
+    return content;
+  } catch (error: any) {
+    console.error("AI Procedure Exception:", error);
+    return `Une erreur technique est survenue : ${error.message}. Veuillez vérifier votre connexion.`;
   }
 }
+

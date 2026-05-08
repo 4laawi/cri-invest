@@ -224,7 +224,7 @@ export default function ProjectDetail() {
                   Points Forts
                 </h3>
                 <ul className="space-y-3">
-                  {analysis.strengths.map((s, i) => (
+                  {analysis.strengths.map((s: string, i: number) => (
                     <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
                       {s}
@@ -239,7 +239,7 @@ export default function ProjectDetail() {
                   Défis à Relever
                 </h3>
                 <ul className="space-y-3">
-                  {analysis.weaknesses.map((w, i) => (
+                  {analysis.weaknesses.map((w: string, i: number) => (
                     <li key={i} className="text-sm text-slate-600 flex items-start gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-1.5 shrink-0" />
                       {w}
@@ -256,7 +256,7 @@ export default function ProjectDetail() {
                 Recommandations Stratégiques
               </h3>
               <div className="grid gap-4">
-                {analysis.suggestions.map((s, i) => (
+                {analysis.suggestions.map((s: string, i: number) => (
                   <div key={i} className="p-4 bg-slate-50 rounded-xl text-sm text-slate-700 border border-slate-100">
                     {s}
                   </div>
@@ -274,7 +274,7 @@ export default function ProjectDetail() {
               </h3>
               <div className="relative space-y-6">
                 <div className="absolute left-3.5 top-0 bottom-0 w-0.5 bg-slate-100" />
-                {analysis.administrative_steps.map((step, i) => (
+                {analysis.administrative_steps.map((step: string, i: number) => (
                   <div key={i} className="relative flex gap-4 pl-8">
                     <div className="absolute left-0 w-7 h-7 rounded-full bg-white border-2 border-emerald-600 flex items-center justify-center text-xs font-bold text-emerald-700 z-10">
                       {i + 1}
